@@ -95,6 +95,18 @@ form.addEventListener("submit", (event) => {
   formMessage.textContent = "Your details are valid. Connect this form to an order endpoint before accepting live orders.";
   formMessage.className = "form-message success";
 });
+document.querySelectorAll(".faq details").forEach((detail) => {
+  detail.addEventListener("click", (event) => {
+    if (!detail.open) return;
+    event.preventDefault();
+    detail.classList.add("faq-closing");
+    window.setTimeout(() => {
+      detail.open = false;
+      detail.classList.remove("faq-closing");
+    }, 350);
+  });
+});
+
 document.querySelector("form .outline").addEventListener("click", () => {
   const data = new FormData(form);
   const name = data.get("name") || "there";
