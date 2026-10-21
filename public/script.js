@@ -33,6 +33,30 @@ document.querySelector(".prev").addEventListener("click", () => showImage(curren
 document.querySelector(".next").addEventListener("click", () => showImage(currentImage + 1));
 mainImage.addEventListener("click", () => window.open(mainImage.src, "_blank", "noopener,noreferrer"));
 showImage(0);
+let touchStartX = 0;
+let touchStartY = 0;
+let touchStartTime = 0;
+mainImage.addEventListener("touchstart", (event) => {
+  const touch = event.changedTouches[0];
+  touchStartX = touch.clientX;
+  touchStartY = touch.clientY;
+  touchStartTime = Date.now();
+}, { passive: true });
+mainImage.addEventListener("touchend", (event) => {
+  const touch = event.changedTouches[0];
+  const deltaX = touch.clientX - touchStartX;
+  const deltaY = touch.clientY - touchStartY;
+  const elapsed = Date.now() - touchStartTime;
+  if (elapsed < 700 && Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY)) {
+    showImage(currentImage + (deltaX < 0 ? 1 : -1));
+  }
+}, { passive: true });
+let autoplayTimer = window.setInterval(() => showImage(currentImage + 1), 4500);
+const gallery = document.querySelector(".gallery");
+gallery.addEventListener("mouseenter", () => window.clearInterval(autoplayTimer));
+gallery.addEventListener("mouseleave", () => { autoplayTimer = window.setInterval(() => showImage(currentImage + 1), 4500); });
+gallery.addEventListener("touchstart", () => window.clearInterval(autoplayTimer), { passive: true });
+gallery.addEventListener("touchend", () => { autoplayTimer = window.setInterval(() => showImage(currentImage + 1), 4500); }, { passive: true });
 
 document.querySelectorAll('a[href="#order"]').forEach((link) => link.addEventListener("click", () => document.querySelector("#order")?.scrollIntoView({ behavior: "smooth" })));
 const quantity = document.querySelector("#quantity");
