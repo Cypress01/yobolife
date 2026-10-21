@@ -6,7 +6,10 @@ const images = [
   ["https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Yobolife3605_19-SQXxMmg4voansACadnJPmb53epZEgv.png", "Three LED bulbs"],
   ["https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Yobolife3605_6-ajjC7IIImX3ggA9KA8jAN2FWMHpZzX.png", "LM-3605 front"],
   ["https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Yobolife3605_5-YmyGH5FSZZKyXOATdGAJM3SZ6Hqzfy.png", "LM-3605 rear ports"],
-  ["https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Yobolife3605_4-Rt8HThZC6xsp4Hne9YMXfLcJJvbLaK.png", "LM-3605 flashlight"]
+  ["https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Yobolife3605_4-Rt8HThZC6xsp4Hne9YMXfLcJJvbLaK.png", "LM-3605 flashlight"],
+  ["https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Yobolife-Solar-Lighting-Kit-with-3LED-Bulbs-USB-Mobile-Phone-Charge-and-LED-Lighting-3-lVqNDfPmgCBDplLVC2NBvyLfpCuMOz.avif", "LM-3605 kit with bulbs"],
+  ["https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Yobolife-Solar-Lighting-Kit-with-3LED-Bulbs-USB-Mobile-Phone-Charge-and-LED-Lighting-1-j3rAhv0fP30dkKvf5TkoNv2rbH0fii.avif", "LM-3605 USB phone charging"],
+  ["https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Yobolife-Solar-Lighting-Kit-with-3LED-Bulbs-USB-Mobile-Phone-Charge-and-LED-Lighting-5-vaRybZfPjXcPl9fcilkiuHTsm2tZR1.avif", "LM-3605 rear panel"]
 ];
 let currentImage = 0;
 const mainImage = document.querySelector("#main-image");
