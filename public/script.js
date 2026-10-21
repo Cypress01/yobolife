@@ -65,9 +65,8 @@ const subtotal = document.querySelector("#subtotal");
 function formatNaira(value) { return `₦${value.toLocaleString("en-NG")}`; }
 function updateTotal() {
   const count = Math.max(1, Number.parseInt(quantity.value, 10) || 1);
-  quantity.value = count;
-  summaryQuantity.textContent = count;
-  subtotal.textContent = formatNaira(PRODUCT_PRICE * count);
+  summaryQuantity.textContent = quantity.value ? count : 1;
+  subtotal.textContent = formatNaira(PRODUCT_PRICE * (quantity.value ? count : 1));
 }
 quantity.addEventListener("input", updateTotal);
 updateTotal();
