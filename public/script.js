@@ -1,0 +1,76 @@
+const PRODUCT_PRICE = 43500;
+const WHATSAPP_NUMBER = "REPLACE_WITH_SELLER_WHATSAPP_NUMBER";
+const images = [
+  ["https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Yobolife3605_2%20%281%29-atutaTsxbIzgkrpXlWOQM9CgYF5634.png", "Complete YOBOLIFE LM-3605 kit"],
+  ["https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Yobolife3605_10-9dxf9coa5l6gez4SqMzQDTniMpSmJZ.png", "6V 4W solar panel"],
+  ["https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Yobolife3605_19-SQXxMmg4voansACadnJPmb53epZEgv.png", "Three LED bulbs"],
+  ["https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Yobolife3605_6-ajjC7IIImX3ggA9KA8jAN2FWMHpZzX.png", "LM-3605 front"],
+  ["https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Yobolife3605_5-YmyGH5FSZZKyXOATdGAJM3SZ6Hqzfy.png", "LM-3605 rear ports"],
+  ["https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Yobolife3605_4-Rt8HThZC6xsp4Hne9YMXfLcJJvbLaK.png", "LM-3605 flashlight"]
+];
+let currentImage = 0;
+const mainImage = document.querySelector("#main-image");
+const thumbnails = document.querySelector(".thumbnails");
+function showImage(index) {
+  currentImage = (index + images.length) % images.length;
+  mainImage.src = images[currentImage][0];
+  mainImage.alt = images[currentImage][1];
+  document.querySelectorAll(".thumb").forEach((thumb, i) => thumb.classList.toggle("active", i === currentImage));
+}
+images.forEach((image, index) => {
+  const button = document.createElement("button");
+  button.className = "thumb";
+  button.type = "button";
+  button.setAttribute("aria-label", `View ${image[1]}`);
+  button.innerHTML = `<img src="${image[0]}" alt="">`;
+  button.addEventListener("click", () => showImage(index));
+  thumbnails.appendChild(button);
+});
+document.querySelector(".prev").addEventListener("click", () => showImage(currentImage - 1));
+document.querySelector(".next").addEventListener("click", () => showImage(currentImage + 1));
+mainImage.addEventListener("click", () => window.open(mainImage.src, "_blank", "noopener,noreferrer"));
+showImage(0);
+
+document.querySelectorAll('a[href="#order"]').forEach((link) => link.addEventListener("click", () => document.querySelector("#order")?.scrollIntoView({ behavior: "smooth" })));
+const quantity = document.querySelector("#quantity");
+const summaryQuantity = document.querySelector("#summary-quantity");
+const subtotal = document.querySelector("#subtotal");
+function formatNaira(value) { return `₦${value.toLocaleString("en-NG")}`; }
+function updateTotal() {
+  const count = Math.max(1, Number.parseInt(quantity.value, 10) || 1);
+  quantity.value = count;
+  summaryQuantity.textContent = count;
+  subtotal.textContent = formatNaira(PRODUCT_PRICE * count);
+}
+quantity.addEventListener("input", updateTotal);
+updateTotal();
+function openWhatsApp(message) {
+  if (WHATSAPP_NUMBER === "REPLACE_WITH_SELLER_WHATSAPP_NUMBER") {
+    alert("Please replace WHATSAPP_NUMBER in script.js with the seller's WhatsApp number before publishing.");
+    return;
+  }
+  window.open(`https://wa.me/${WHATSAPP_NUMBER.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+}
+document.querySelectorAll("[data-whatsapp]").forEach((button) => button.addEventListener("click", (event) => {
+  event.preventDefault();
+  openWhatsApp("Hello, I'm interested in ordering the YOBOLIFE LM-3605 Solar Lighting Kit for ₦43,500. Please provide more information.");
+}));
+const form = document.querySelector("#order-form");
+const formMessage = document.querySelector("#form-message");
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  if (!form.checkValidity()) {
+    formMessage.textContent = "Please complete all required fields before submitting.";
+    formMessage.className = "form-message error";
+    form.reportValidity();
+    return;
+  }
+  formMessage.textContent = "Your details are valid. Connect this form to an order endpoint before accepting live orders.";
+  formMessage.className = "form-message success";
+});
+document.querySelector("form .outline").addEventListener("click", () => {
+  const data = new FormData(form);
+  const name = data.get("name") || "there";
+  const count = data.get("quantity") || 1;
+  openWhatsApp(`Hello, I'm ${name}. I'd like to order ${count} YOBOLIFE LM-3605 Solar Lighting Kit(s) at ₦43,500 each. My delivery location is ${data.get("city") || "to be confirmed"}. Please confirm delivery charges.`);
+});
