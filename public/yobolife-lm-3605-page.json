@@ -1,0 +1,26 @@
+{
+  "brand": "YOBOLIFE",
+  "model": "LM-3605",
+  "title": "Solar Lighting Kit with 3 LED Bulbs and USB Phone Charging",
+  "description": "Get practical portable lighting with three LED bulbs, a rechargeable 6000mAh battery, a solar panel, and USB charging for compatible mobile devices.",
+  "pricing": { "original": 55000, "current": 43500, "currency": "NGN", "discountPercent": 21, "savings": 11500 },
+  "highlights": ["3 LED bulbs", "6000mAh rechargeable battery", "6V 4W solar panel", "USB phone charging", "Built-in flashlight"],
+  "gallery": [
+    { "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Yobolife3605_2%20%281%29-atutaTsxbIzgkrpXlWOQM9CgYF5634.png", "alt": "Complete YOBOLIFE LM-3605 kit" },
+    { "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Yobolife3605_10-9dxf9coa5l6gez4SqMzQDTniMpSmJZ.png", "alt": "6V 4W solar panel" },
+    { "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Yobolife3605_19-SQXxMmg4voansACadnJPmb53epZEgv.png", "alt": "Three LED bulbs" },
+    { "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Yobolife3605_6-ajjC7IIImX3ggA9KA8jAN2FWMHpZzX.png", "alt": "LM-3605 front" },
+    { "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Yobolife3605_5-YmyGH5FSZZKyXOATdGAJM3SZ6Hqzfy.png", "alt": "LM-3605 rear ports" },
+    { "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Yobolife3605_4-Rt8HThZC6xsp4Hne9YMXfLcJJvbLaK.png", "alt": "LM-3605 flashlight" }
+  ],
+  "kitInAction": [
+    { "title": "Complete lighting kit", "description": "The complete LM-3605 set includes the main unit, solar panel, three LED bulbs, and connecting cables for flexible portable lighting." },
+    { "title": "Product Specifications", "description": "The LM-3605 combines a 6V 4W solar panel, 3.2V rechargeable battery, three 3W LED bulbs, and USB charging output in one practical lighting kit." },
+    { "title": "USB and bulb output ports", "description": "The rear panel provides the controls, one 5V 1A USB output, and dedicated 3V connections for the included LED bulbs." },
+    { "title": "USB mobile phone charging", "description": "Connect a compatible mobile device to the built-in 5V 1A USB output for convenient everyday charging." },
+    { "title": "Built-in LED flashlight", "description": "A built-in LED flashlight adds a focused light source for navigating dark areas and everyday tasks." },
+    { "title": "Practical off-grid lighting", "description": "Designed for dependable lighting at home, outdoors, or during power interruptions, with solar charging and portable phone power in one compact kit." }
+  ],
+  "specifications": { "Brand": "YOBOLIFE", "Model": "LM-3605", "Battery type": "LiFePO4", "Battery voltage": "3.2V", "Battery capacity": "6000mAh", "Solar panel": "6V 4W", "LED bulbs": "3 × 3W", "USB output": "5V 1A", "USB ports": 1, "DC output": "3V", "AC input": "110V–240V", "Solar input": "6V", "AC charging time": "Approximately 4–6 hours", "Solar charging time": "Approximately 10–12 hours", "Warranty": "12 months, subject to applicable terms", "Country of origin": "Guangdong Province, China" },
+  "ordering": { "deliveryNote": "Delivery charges depend on destination and will be confirmed by the seller.", "quantityMinimum": 1, "currency": "NGN" }
+}
